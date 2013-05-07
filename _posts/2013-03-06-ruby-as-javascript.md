@@ -171,7 +171,7 @@ It works just like you'd expect:
     # outputs: "The count is still: 0"
     {% endhighlight %}
 
-This seems like what we want.  Ruby looks like it's protecting your objects' internal state from other code.  But Ruby also has the instance_variable_set method, which means your objects don't really have any protection at all.
+This seems like what we want.  Ruby looks like it's protecting your objects' internal state from other code.  But Ruby is also an incredibly dynamic language which has things like the instance_variable_set method, which means your objects don't really have any protection at all.
 
     {% highlight ruby %}
     c.instance_variable_set(:@count, 3.14159)
@@ -180,7 +180,7 @@ This seems like what we want.  Ruby looks like it's protecting your objects' int
     # outputs "The count is now: 3.14159"
     {% endhighlight %}
 
-The instance_variable_set method is the bane of anyone who wants to truly protect their object's state.  Because of it's existence, it is basically impossible to truly hide your objects' internal state in Ruby.
+Between instance_variable_set and reopening classes, it's basically impossible to hide your objects' instance variables in Ruby.
 
 
 ### Ruby as Javascript
